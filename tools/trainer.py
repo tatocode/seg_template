@@ -87,7 +87,7 @@ class MyTrainer:
                 for image, mask in self.val_loader:
                     image, mask = image.to(self.device, dtype=torch.float32), mask.to(self.device, dtype=torch.long)
                     prediction = torch.argmax(self.model(image).cpu(), dim=1)
-                    self.metric.addBatch(prediction, mask)
+                    self.metric.addBatch(prediction, mask.cpu())
                     mAcc_sum += self.metric.meanPixelAccuracy()
                     mIoU_sum += self.metric.meanIntersectionOverUnion()
                     FWIoU_sum += self.metric.Frequency_Weighted_Intersection_over_Union()
