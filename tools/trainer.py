@@ -96,7 +96,7 @@ class MyTrainer:
                     # 画图
                     idx_random = random.randint(0, image.shape[0]-1)
 
-                    i = de_normalization(image[idx_random].cpu(), mean=mean, std=std).numpy().transpose(1, 2, 0)
+                    i = de_normalization(image[idx_random].cpu(), mean=mean, std=std).numpy().transpose(1, 2, 0)*255
                     m = mask[idx_random].cpu().numpy()
                     p = prediction[idx_random].cpu().numpy()
 

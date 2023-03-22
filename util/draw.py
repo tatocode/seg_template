@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 def save_val_prediction(image: np.array, mask: np.array, prediction: np.array, cmap: np.array, save_path: str) -> None:
     assert image.shape[:-1] == mask.shape == prediction.shape, f'验证集 image({image.shape[-2:]}), mask({mask.shape}), ' \
                                                                f'predict({prediction.shape}) 形状大小不一致'
-    result = np.hstack([image, cmap[mask], cmap[prediction]])
+    result = np.hstack([image[:, :, ::-1], cmap[mask], cmap[prediction]])
     cv2.imwrite(save_path, result)
 
 
