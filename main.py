@@ -4,7 +4,7 @@ import datasets.temp
 from datasets.temp import TempDataset
 import albumentations as A
 from torch.utils.data import DataLoader
-from models.UNet.unet import UNet
+from models.UNet.unet_model import UNet
 from torch import nn
 from tools.evaluate import SegmentationMetric
 from tools.trainer import MyTrainer
